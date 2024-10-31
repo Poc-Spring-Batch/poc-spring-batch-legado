@@ -3,7 +3,7 @@ package br.com.pupposoft.poc.springbatch.legado.carrinho.gateway.database;
 import org.springframework.stereotype.Component;
 
 import br.com.pupposoft.poc.springbatch.legado.carrinho.gateway.CarrinhoGateway;
-import br.com.pupposoft.poc.springbatch.legado.config.db.entity.CarrinhoCompraEntity;
+import br.com.pupposoft.poc.springbatch.legado.config.db.entity.EstoqueEntity;
 import br.com.pupposoft.poc.springbatch.legado.config.db.entity.ItemEntity;
 import br.com.pupposoft.poc.springbatch.legado.config.db.entity.ItemId;
 import br.com.pupposoft.poc.springbatch.legado.config.db.repository.CarrinhoCompraRepository;
@@ -27,8 +27,8 @@ public class CarrinhoRepositoryGateway implements CarrinhoGateway {
 	public Long salvar(CarrinhoCompra carrinhoCompra) {
 		try {
 			
-			CarrinhoCompraEntity carrinhoEntity = 
-					CarrinhoCompraEntity.builder().idUsuario(carrinhoCompra.getUsuarioId()).build();
+			EstoqueEntity carrinhoEntity = 
+					EstoqueEntity.builder().idUsuario(carrinhoCompra.getUsuarioId()).build();
 			carrinhoCompraRepository.save(carrinhoEntity);
 			
 			final Long carrinhoId = carrinhoEntity.getId();

@@ -31,7 +31,7 @@ public class ProdutoController {
 		return new ProdutoJson(produto);
 	}
 	
-	@GetMapping("produtos/status/{status}")
+	@GetMapping("carrinho-compras/status/{status}/produtos")
 	public List<ProdutoJson> obterProdutosPeloStatus(@PathVariable("status") StatusPedido status){
 		List<Produto> produtos = obterProdutoUsecase.obterPorCarrinhoStatus(status);
 		return produtos.stream().map(ProdutoJson::new).toList();
