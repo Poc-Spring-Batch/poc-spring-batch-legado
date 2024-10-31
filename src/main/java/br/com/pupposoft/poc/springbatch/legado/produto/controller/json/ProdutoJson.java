@@ -10,11 +10,13 @@ import lombok.ToString;
 public class ProdutoJson {
 	private Long id;
 	private String nome;
+	private Integer quantidade;
 	private Double preco;
 
 	public ProdutoJson(Produto produto) {
 		id = produto.getId();
 		nome = produto.getNome();
 		preco = produto.getPreco().doubleValue();
+		quantidade = produto.getQuantidadeTotal();
 	}
 }

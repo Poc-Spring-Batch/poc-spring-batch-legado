@@ -38,7 +38,7 @@ public class CarrinhoCompraController {
 	
 	private CarrinhoCompra mapJsonToDomain(CarrinhoCompraJson carrinhoCompraJson) {
 		List<Item> itens = carrinhoCompraJson.getItens().stream()
-				.map(i -> new Item(new Produto(i.getProdutoId(), null, null), i.getQuantidade()))
+				.map(i -> new Item(new Produto(i.getProdutoId(), null, null, null), i.getQuantidade()))
 				.toList();
 		return new CarrinhoCompra(new Usuario(carrinhoCompraJson.getUsuarioId()), itens); 
 	}

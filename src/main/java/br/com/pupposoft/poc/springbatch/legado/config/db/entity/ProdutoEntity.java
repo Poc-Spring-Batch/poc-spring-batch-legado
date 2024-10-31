@@ -1,11 +1,13 @@
 package br.com.pupposoft.poc.springbatch.legado.config.db.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,4 +26,7 @@ public class ProdutoEntity {
 	private Long id;
 	private String nome;
 	private BigDecimal preco;
+	
+	@OneToMany(mappedBy = "produto")
+	private List<ItemEntity> itens;
 }

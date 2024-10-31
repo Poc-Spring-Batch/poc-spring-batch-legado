@@ -31,7 +31,7 @@ public class ProdutoApiServiceGateway implements ProdutoGateway {
 	}
 
 	private Produto mapJsonToDomain(ProdutoJson produtoJson) {
-		return new Produto(produtoJson.getId(), produtoJson.getNome(), BigDecimal.valueOf(produtoJson.getPreco()));
+		return new Produto(produtoJson.getId(), produtoJson.getNome(), BigDecimal.valueOf(produtoJson.getPreco()), null);
 	}
 
 }

@@ -3,6 +3,7 @@ package br.com.pupposoft.poc.springbatch.legado.config.db.entity;
 
 import java.util.List;
 
+import br.com.pupposoft.poc.springbatch.legado.domain.StatusPedido;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,7 @@ public class CarrinhoCompraEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long idUsuario;
+	private StatusPedido status;
 	
 	@OneToMany(mappedBy = "carrinho")
 	private List<ItemEntity> itens;
