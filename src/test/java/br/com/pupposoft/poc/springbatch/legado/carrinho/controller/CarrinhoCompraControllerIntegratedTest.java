@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -16,6 +17,7 @@ class CarrinhoCompraControllerIntegratedTest {
 	private Random random = new Random();
 	
 	@Test
+	@Disabled//Deve ser executado com cautela, pois é um loop infinito
 	void shouldSucessOnCreateCarrinhoCompra() throws Exception {
 		
 		while(true) {
