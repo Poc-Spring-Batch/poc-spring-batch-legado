@@ -10,8 +10,10 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class CarrinhoCompra {
+	private Long id;
 	private Usuario usuario;
 	private List<Item> itens;
+	private StatusPedido status;
 	
 	public Long getUsuarioId() {
 		return usuario.getId();
@@ -26,5 +28,14 @@ public class CarrinhoCompra {
 			Item item = itens.stream().filter(i -> i.getProduto().getId().equals(p.getId())).findAny().get();
 			item.setProduto(p);
 		});
+	}
+
+	public void aterarStatus(StatusPedido status) {
+		//TODO: implementar regras
+		this.status = status;
+	}
+	
+	public void adicionarItem(Item item) {
+		itens.add(item);
 	}
 }

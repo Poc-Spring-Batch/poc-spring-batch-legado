@@ -26,7 +26,7 @@ public class ItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "idCarrinho", insertable = false, updatable = false)
-	private EstoqueEntity carrinho;
+	private CarrinhoCompraEntity carrinho;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idProduto", insertable = false, updatable = false)

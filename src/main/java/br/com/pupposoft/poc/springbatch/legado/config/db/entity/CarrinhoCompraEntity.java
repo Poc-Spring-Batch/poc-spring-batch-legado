@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
 @Getter
@@ -21,11 +22,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "CarrinhoCompra")
-public class EstoqueEntity {
+public class CarrinhoCompraEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long idUsuario;
+	
+	@Setter
 	private StatusPedido status;
 	
 	@OneToMany(mappedBy = "carrinho")
