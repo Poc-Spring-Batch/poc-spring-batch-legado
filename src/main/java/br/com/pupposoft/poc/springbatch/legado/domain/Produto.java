@@ -20,4 +20,8 @@ public class Produto {
 		.mapToInt(Item::getQuantidade)
 		.reduce(0, (a,b) -> a + b);
 	}
+	
+	public List<Long> getIdCarrinhos(){
+		return itens.stream().map(Item::getCarrinhoId).toList();
+	}
 }

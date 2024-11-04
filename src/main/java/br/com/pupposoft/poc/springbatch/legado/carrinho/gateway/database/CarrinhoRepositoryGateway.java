@@ -101,13 +101,15 @@ public class CarrinhoRepositoryGateway implements CarrinhoGateway {
 
 		carrinhoCompraEntity.getItens().forEach(i -> {
 
-			Produto produto = new Produto(
+			var produto = new Produto(
 					i.getProduto().getId(),
 					i.getProduto().getNome(),
 					i.getProduto().getPreco(),
 					null);
-
-			Item item = new Item(produto, i.getQuantidade());
+			
+			var carrinho = new CarrinhoCompra(carrinhoCompraEntity.getId(), null, null, null);
+			
+			Item item = new Item(produto, i.getQuantidade(), carrinho);
 			carrinhoCompra.adicionarItem(item);
 		});
 		return carrinhoCompra;

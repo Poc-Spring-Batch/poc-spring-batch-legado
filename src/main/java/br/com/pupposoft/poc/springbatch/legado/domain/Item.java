@@ -15,6 +15,11 @@ public class Item {
 	@Setter(value = AccessLevel.PACKAGE)
 	private Produto produto;
 	private Integer quantidade;
+	private CarrinhoCompra carrinho;
+	
+	public Long getCarrinhoId() {
+		return carrinho.getId();
+	}
 	
 	public Long getProdutoId() {
 		return produto.getId();

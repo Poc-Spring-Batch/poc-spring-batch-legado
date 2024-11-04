@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.pupposoft.poc.springbatch.legado.config.db.entity.ProdutoEntity;
 import br.com.pupposoft.poc.springbatch.legado.config.db.repository.ProdutoRepository;
+import br.com.pupposoft.poc.springbatch.legado.domain.CarrinhoCompra;
 import br.com.pupposoft.poc.springbatch.legado.domain.Item;
 import br.com.pupposoft.poc.springbatch.legado.domain.Produto;
 import br.com.pupposoft.poc.springbatch.legado.domain.StatusPedido;
@@ -52,8 +53,12 @@ public class ProdutoRepositoryGateway implements ProdutoGateway {
 
 	private Produto mapProdutoEntityToDomain(ProdutoEntity produtoEntity) {
 		List<Item> itens = produtoEntity.getItens().stream().map(i -> {
-			ProdutoEntity produto = i.getProduto();
-			return new Item(new Produto(produto.getId(), null, null, null), i.getQuantidade());
+			var pe = i.getProduto();
+			
+			var pd = new Produto(pe.getId(), null, null, null);
+			var carrinho = new CarrinhoCompra(i.getCarrinho().getId(), null, null, i.getCarrinho().getStatus());
+			
+			return new Item(pd , i.getQuantidade(), carrinho);
 		}).toList();
 
 		return new Produto(produtoEntity.getId(),

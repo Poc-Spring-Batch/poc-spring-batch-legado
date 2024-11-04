@@ -55,7 +55,7 @@ public class CarrinhoCompraController {
 		List<Item> itens = Arrays.asList();
 		if(carrinhoCompraJson.getItens() != null) {
 			itens = carrinhoCompraJson.getItens().stream()
-					.map(i -> new Item(new Produto(i.getProdutoId(), null, null, null), i.getQuantidade()))
+					.map(i -> new Item(new Produto(i.getProdutoId(), null, null, null), i.getQuantidade(), null))
 					.toList();
 		}
 		
